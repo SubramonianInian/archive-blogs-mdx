@@ -93,4 +93,64 @@ Here's how props work in React:
 
 Overall, props provide a way to pass data between React components, enabling a flexible and reusable component architecture.
 
+#### 5. What is State in React?
+
+In React, **"state"** is a built-in object used for storing component-specific data that may change over time. Unlike props, which are passed from parent to child and remain immutable within the child component, state is managed internally within a component and can be updated using the `setState()` method. State allows components to manage and track their own data, making them dynamic and interactive.
+
+Here are the key points about state in React:
+
+1. **Declaring State**: You can declare state in a React component by initializing the `state` property within the component's constructor.
+
+    ```jsx
+    import React, { Component } from 'react';
+
+    class MyComponent extends Component {
+        constructor(props) {
+            super(props);
+            this.state = {
+                count: 0,
+                message: 'Hello, World!'
+            };
+        }
+    }
+    ```
+
+2. **Accessing State**: You can access state data using `this.state` within the component's methods.
+
+    ```jsx
+    render() {
+        return (
+            <div>
+                <p>Count: {this.state.count}</p>
+                <p>Message: {this.state.message}</p>
+            </div>
+        );
+    }
+    ```
+
+3. **Updating State**: State should be updated using the `setState()` method provided by React. Directly modifying `this.state` will not trigger re-rendering.
+
+    ```jsx
+    handleClick = () => {
+        this.setState({ count: this.state.count + 1 });
+    }
+    ```
+
+4. **Async State Updates**: `setState()` can accept a function as an argument to handle asynchronous updates correctly.
+
+    ```jsx
+    handleClick = () => {
+        this.setState((prevState) => {
+            return { count: prevState.count + 1 };
+        });
+    }
+    ```
+
+5. **Immutable State**: Similar to props, state in React components is immutable. You should never modify state directly; always use `setState()` to update it.
+
+6. **Local to Component**: State is local to the component in which it is declared. It cannot be accessed or modified by other components.
+
+Overall, state in React provides a way for components to manage and update their own data, making them dynamic and responsive to user interactions. It's a key concept in building interactive user interfaces with React.
+
+
 
