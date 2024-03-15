@@ -30,4 +30,67 @@ function MyComponent() {
 }
 
 export default MyComponent;
+```
+#### 4. What are props in React?
+
+In React, **"props"** (short for properties) are a fundamental concept used for passing data from one component to another. Props are a way of making components dynamic and reusable. They are similar to function arguments in JavaScript.
+
+Here's how props work in React:
+
+1. **Passing Props**: You can pass props from a parent component to a child component by including attributes in the child component's JSX tag. These attributes then become properties of the `props` object in the child component.
+
+    ```jsx
+    // ParentComponent.js
+    import ChildComponent from './ChildComponent';
+
+    function ParentComponent() {
+        return <ChildComponent name="John" />;
+    }
+    ```
+
+    ```jsx
+    // ChildComponent.js
+    function ChildComponent(props) {
+        return <p>Hello, {props.name}!</p>;
+    }
+    ```
+
+2. **Accessing Props**: In the child component, you can access the passed props through the `props` object.
+
+3. **Immutable Data**: Props are immutable, meaning that child components cannot modify the props passed to them from their parent. Props are read-only.
+
+4. **Default Props**: You can also specify default values for props using the `defaultProps` property.
+
+    ```jsx
+    function ChildComponent(props) {
+        return <p>Hello, {props.name}!</p>;
+    }
+
+    ChildComponent.defaultProps = {
+        name: 'Guest'
+    };
+    ```
+
+5. **Using Props for Dynamic Rendering**: Props can be used to render components dynamically based on different data passed from the parent component.
+
+    ```jsx
+    function UserGreeting(props) {
+        return <h1>Welcome back, {props.username}!</h1>;
+    }
+
+    function GuestGreeting(props) {
+        return <h1>Please sign up.</h1>;
+    }
+
+    function Greeting(props) {
+        const isLoggedIn = props.isLoggedIn;
+        if (isLoggedIn) {
+            return <UserGreeting username={props.username} />;
+        }
+        return <GuestGreeting />;
+    }
+    ```
+
+Overall, props provide a way to pass data between React components, enabling a flexible and reusable component architecture.
+
 
