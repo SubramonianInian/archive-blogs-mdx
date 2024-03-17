@@ -4,12 +4,32 @@ title: '.Net Interview Questions'
 date: '2023-03-17'
 tags: ['.Net','C#','Interview']
 ---
+#### Contents
+      <Questions
+        Questions={
+            [
+                'What are the specific differences between a monolithic architecture and a microservices architecture in the context of .NET development?',
+                'What are the key features of React?',
+                'How do you define a React component?',
+                'What are props in React?',
+                'What is State in React?'
+            ]
+        } />
 
-We recommend using **Static Generation** (with and without data) whenever possible because your page can be built once and served by CDN, which makes it much faster than having a server render the page on every request.
+#### 1. What are the specific differences between a monolithic architecture and a microservices architecture in the context of .NET development?
 
-You can use Static Generation for many types of pages, including:
+### Monolithic Architecture:
 
-- Marketing pages
-- Blog posts
-- E-commerce product listings
-- Help and documentation
+- **Structure:** In a monolithic architecture, the entire application is typically built as a single executable or assembly.
+- **Development:** Developers work on a single codebase, and changes to any part of the application require redeployment of the entire application.
+- **Deployment:** Deployment involves deploying the entire application as a single unit, which can be simpler compared to microservices.
+- **Scaling:** Scaling a monolithic application often involves scaling the entire application, which can be less flexible and efficient compared to microservices.
+
+### Microservices Architecture:
+
+- **Structure:** In a microservices architecture, the application is divided into smaller, loosely coupled services, each responsible for specific functionalities.
+- **Development:** Developers work on smaller, more focused codebases, allowing for greater agility and independent deployment of services.
+- **Deployment:** Each microservice can be deployed independently, enabling continuous delivery and updates without affecting other parts of the application.
+- **Scaling:** Services can be scaled independently based on their individual requirements, offering better resource utilization and scalability compared to monolithic applications.
+
+In summary, while both monolithic and microservices architectures are viable options in .NET development, they differ significantly in their structure, development process, deployment strategy, and scalability.
